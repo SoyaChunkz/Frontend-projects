@@ -12,7 +12,515 @@
         href="https://sidcupfamilygolf.com/wp-content/themes/puttosaurus/favicons/favicon-32x32.png"
         type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/stylesheets/proj1.css">
+    <!-- <link rel="stylesheet" href="/public/stylesheets/proj1.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            /* perspective: 800px; */
+        }
+
+        *::selection {
+            background-color: #fff;
+            color: #95c11e;
+        }
+
+        body::-webkit-scrollbar {
+            display: block;
+            width: 8px;
+            background: #95c11e;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #fff;
+
+            border-radius: 50px;
+        }
+
+        #nav {
+            /* background-color: red; */
+            height: 140px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0px 150px;
+            gap: 50px;
+            position: fixed;
+            z-index: 99;
+        }
+
+        #nav img {
+            height: 80px;
+        }
+
+        #nav h4 {
+            font-weight: 500;
+            padding: 5px;
+        }
+
+        #cursor {
+            height: 20px;
+            width: 20px;
+            background-color: #96c11e41;
+            border-radius: 50%;
+            position: fixed;
+            z-index: 99;
+            transition: all linear 0.05s;
+        }
+
+        #cursor-blur {
+            height: 500px;
+            width: 500px;
+            background-color: #96c11e5b;
+            border-radius: 50%;
+            position: fixed;
+            filter: blur(90px);
+            z-index: 9;
+            animation-delay: 2s;
+            transition: all linear 0.4s;
+        }
+
+        video {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            position: fixed;
+            z-index: -1;
+        }
+
+        #main {
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.351);
+        }
+
+        #page1 {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            z-index: 10;
+        }
+
+        #page1 h1 {
+            font-size: 140px;
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative;
+        }
+
+        #page1 h1::before {
+            content: "EAT. DRINK. PLAY";
+            position: absolute;
+            color: black;
+            top: -6px;
+            left: -6px;
+            -webkit-text-stroke: 2px #96c11e;
+            z-index: -1;
+        }
+
+        #page1 h2 {
+            font-size: 33px;
+            font-weight: 800;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        #page1 p {
+            font-size: 22px;
+            font-weight: 500;
+            width: 40%;
+        }
+
+        #page1 #arrow {
+            height: 250px;
+            width: 250px;
+            background-color: transparent;
+            border: 4px solid #95c11e;
+            position: absolute;
+            display: flex;
+            left: -2%;
+            bottom: 0%;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all ease 0.5s;
+        }
+
+        #page1 #arrow i {
+            font-size: 50px;
+            font-weight: 100;
+        }
+
+        #page1 #arrow:hover {
+            scale: 0.4;
+            background-color: #95c11e;
+        }
+
+
+        #page2 {
+            min-height: 100vh;
+            width: 100%;
+            z-index: 10;
+        }
+
+        #scroller {
+            /* background-color: red; */
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+            position: relative;
+            z-index: 10;
+        }
+
+        #scroller::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scroller-in-1 {
+            display: inline-block;
+            white-space: nowrap;
+            animation-name: scroll;
+            animation-duration: 30s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        #scroller h4 {
+            display: inline-block;
+            font-size: 120px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 900;
+            margin-right: 10px;
+            -webkit-text-stroke: 2px #96c11e;
+            color: transparent;
+            transition: all linear 0.4s;
+        }
+
+        #scroller h4:hover {
+            color: #96c11e;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0%);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        #about-us {
+            height: 40vh;
+            width: 100%;
+            /* background-color: rebeccapurple; */
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            position: relative;
+            z-index: 10;
+        }
+
+        #about-us img {
+            height: 220px;
+            width: 220px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        #about-us-in {
+            width: 50%;
+            text-align: center;
+        }
+
+        #about-us-in h3 {
+            font-size: 54px;
+            font-weight: 800px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 30px;
+        }
+
+        #about-us-in p {
+            font-size: 20px;
+            letter-spacing: 26;
+        }
+
+        #cards-container {
+            /* background-color: red; */
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 70px;
+            position: relative;
+            z-index: 10;
+            opacity: 1;
+        }
+
+        .cards {
+            height: 80%;
+            width: 24%;
+            /* background-color: rebeccapurple; */
+            border-radius: 20px;
+            background-position: center;
+            background-size: cover;
+            overflow: hidden;
+            transition: all ease 0.6s;
+
+        }
+
+        #card1 {
+            background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-toptracer-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+        }
+
+        #card2 {
+            background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/hero-4-1024x1024.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+        }
+
+        #card3 {
+            background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-lessons-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+        }
+
+        .overlay {
+            height: 100%;
+            width: 100%;
+            background-color: #96c11e;
+            padding: 30px;
+            padding-top: 150px;
+            opacity: 0;
+            transition: all ease 0.6s;
+        }
+
+        .cards:hover .overlay {
+            opacity: 1;
+        }
+
+        .cards:hover {
+            transform: rotate3d(-1, 1, 0, 20deg);
+        }
+
+        .overlay h4 {
+            color: #000;
+            font-size: 40px;
+            text-transform: uppercase;
+            font-weight: 800;
+            white-space: nowrap;
+            margin-bottom: 10px;
+        }
+
+        .overlay p {
+            color: #000;
+            font-size: 18px;
+        }
+
+        #green-div {
+            height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to left bottom, #119f3a, #ace022);
+        }
+
+        #green-div h4 {
+            width: 45%;
+            font-size: 27px;
+            font-weight: 800;
+            line-height: 50px;
+            color: #000;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #green-div img {
+            height: 100%;
+            object-fit: cover;
+            width: 15%;
+        }
+
+        #page3 {
+            height: 100vh;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        #page3 p {
+            font-size: 35px;
+            font-weight: 800;
+            width: 60%;
+            line-height: 45px;
+            text-align: center;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            z-index: 10;
+
+        }
+
+        #page3 img {
+            height: 60px;
+            position: absolute;
+        }
+
+        #colon1 {
+            left: 15%;
+            top: 30%;
+        }
+
+        #colon2 {
+            right: 15%;
+            bottom: 30%;
+        }
+
+        #page4 {
+            height: 30vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 70px;
+            position: relative;
+
+        }
+
+        .elem {
+            height: 70%;
+            width: 25%;
+            overflow: hidden;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .elem h2 {
+            height: 100%;
+            width: 100%;
+            background-color: #95c11e;
+            display: flex;
+            color: #000;
+            font-weight: 800;
+            align-items: center;
+            justify-content: center;
+            transition: all ease 0.5s;
+            font-size: 1.7vw;
+            position: absolute;
+            z-index: 10;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+        .elem img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: all ease 0.5s;
+            scale: 1.1;
+        }
+
+        .elem:hover h2 {
+            color: #fff;
+            background-color: transparent;
+        }
+
+        .elem:hover img {
+            scale: 1;
+        }
+
+        #page4 h1 {
+            font-size: 5vw;
+            text-align: center;
+            position: absolute;
+            top: -15%;
+            font-weight: 900;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #000;
+            -webkit-text-stroke: 2px #fff;
+            z-index: 10;
+            transition: all ease 0.5s;
+
+        }
+
+        #page4 h1:hover {
+            -webkit-text-stroke: 2px #95c11e;
+            color: black;
+
+        }
+
+        #footer {
+            height: 40vh;
+            width: 100%;
+            background: linear-gradient(to left bottom, #119f3a 0%, #a3d421 80%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 6.5vw;
+            padding: 0 100px;
+        }
+
+        #footer>img {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            z-index: 0;
+        }
+
+        #f1 img {
+            height: 100px;
+        }
+
+        #f1,
+        #f2,
+        #f3,
+        #f4 {
+            width: fit-content;
+            position: relative;
+            z-index: 99;
+            /* background-color: red; */
+        }
+
+        #f2 h3 {
+            font-size: 1.6vw;
+            white-space: nowrap;
+            text-transform: uppercase;
+            color: #000;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        #f3 h3 {
+            font-size: 1.6vw;
+            white-space: nowrap;
+            text-transform: uppercase;
+            color: #000;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        #f4 h4 {
+            font-size: 1vw;
+            white-space: nowrap;
+            text-transform: uppercase;
+            color: #000;
+            font-weight: 600;
+            line-height: 20px;
+            margin-bottom: 8px;
+        }
+    </style>
 </head>
 
 <body>
@@ -116,7 +624,7 @@
             <h1>WHAT ARE YOU WAITING FOR?</h1>
             <div class="elem">
                 <h2>TOPTRACER RANGE</h2>
-                <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-toptracer-1024x683.jpg?strip=all&lossy=1&sharp=1&ssl=1"
+                <img src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-ag-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1"
                     alt="" />
             </div>
             <div class="elem">
@@ -165,7 +673,125 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
         integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/javascripts/proj1.js"></script>
+    <!-- <script src="/public/javascripts/proj1.js"></script> -->
+    <script>
+        var crsr = document.querySelector("#cursor");
+        var blur = document.querySelector("#cursor-blur");
+
+        document.addEventListener("mousemove", function (dets) {
+            crsr.style.left = dets.x  + "px";
+            crsr.style.top = dets.y + "px";
+            blur.style.left = dets.x - 250 + "px";
+            blur.style.top = dets.y - 250 + "px";
+            // crsr.style.transform = "translate(-50%,-50%)";
+        })
+
+        var h4all = document.querySelectorAll("#nav h4");
+        h4all.forEach(function (elem) {
+            elem.addEventListener("mouseenter", function () {
+                crsr.style.scale = 3;
+                crsr.style.border = "1px solid white";
+                crsr.style.backgroundColor = "transparent";
+            })
+            elem.addEventListener("mouseleave", function () {
+                crsr.style.scale = 1;
+                crsr.style.border = "0px solid #96c11e";
+                crsr.style.backgroundColor = "#96c11e";
+            })
+        })
+
+
+
+        gsap.to("#nav", {
+            backgroundColor: "black",
+            height: "110px",
+            duration: 0.5,
+            delay: 1,
+            scrollTrigger: {
+                target: "#nav",
+                scroller: "body",
+                scrub: 1,
+                // markers : true,
+                start: "top -10%",
+                end: "top -11%"
+            }
+        })
+
+        gsap.to("#main", {
+            backgroundColor: "black",
+            scrollTrigger: {
+                target: "#main",
+                scroller: "body",
+                // markers : true ,
+                start: "top -25%",
+                end: "top -60%",
+                scrub: 2,
+            }
+        })
+
+        gsap.from("#about-us img,#about-us-in", {
+            y: 90,
+            opacity: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: "#about-us",
+                scroller: "body",
+                start: "top 60%",
+                end: "top 55%",
+                scrub: 2
+            }
+        })
+
+        gsap.from(".cards", {
+            scale: 0.8,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: ".cards",
+                scroller: "body",
+                start: "top 70%",
+                end: "top 60%",
+                scrub: 0
+            }
+        })
+
+        gsap.from("#colon1", {
+            y: -70,
+            x: -70,
+            scrollTrigger: {
+                trigger: "#colon1",
+                target: "body",
+                start: "top 50%",
+                end: "top 47%",
+                scrub: 3
+            }
+        })
+        gsap.from("#colon2", {
+            y: 70,
+            x: 70,
+            scrollTrigger: {
+                trigger: "#colon1",
+                target: "body",
+                start: "top 50%",
+                end: "top 47%",
+                scrub: 3
+            }
+        })
+
+        gsap.from("#page4 h1", {
+            y: 50,
+            scrollTrigger: {
+                trigger: "#page4 h1",
+                target: "body",
+                start: "top 75%",
+                end: "top 70%",
+                scrub: 2
+            }
+        })
+
+
+    </script>
 </body>
 
 </html>

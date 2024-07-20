@@ -38,7 +38,7 @@ const app = express()
 // 5 - res.send ki jagah res.render karo  aur reder karte waqt views folder ke andar wali hi file ka naaam likho i.e usko render karo aur render function ke andar .ejs mat likho
 
 app.set("view engine", "ejs");
-app.use(express.static('./public'));
+// app.use(express.static('./public'));
 
 app.get("/", function (req, res) {
     res.render("index", { name: "sammo" })

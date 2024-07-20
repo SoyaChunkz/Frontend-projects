@@ -4,9 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <H1>Hello from <%= name%></H1>
-    
+    <h1>Welcome to <%= name %>'s Projects</h1>
+    <div class="intro">
+        A compilation of sleek and appealing frontend projects linked together using Express.js
+    </div>
+    <div class="button-container">
+        <a href="/proj1" class="button">Project 1</a>
+        <a href="/proj2" class="button">Project 2</a>
+        <a href="/proj3" class="button">Project 3</a>
+        <a href="/error" class="button">Error Page</a>
+    </div>
 </body>
 </html>
