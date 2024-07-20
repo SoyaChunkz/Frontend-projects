@@ -1,33 +1,6 @@
 const express = require('express')
 const app = express()
 
-//middleware -- we can make multiple middlewares too  
-//req me user ka data hota hai jo server pe jata hai
-//res me server se jo code/control hote hai jiske basis pe hum server se response bhej te hai 
-//next is used to give a push to the next route
-// app.use(function(req,res,next){
-//     console.log("middleware1");
-//     next();
-// })
-// app.use(function(req,res,next){
-//     console.log("middleware2");
-//     next();
-// })
-
-// app.get('/', function (req, res) {
-//   res.send('Hello World')
-// })
-// app.get('/profile', function (req, res) {
-//   res.send('Hello profile')
-// })
-// app.get('/profile/:username', function (req, res) {
-//     //  :username    :ke baad kuch bhi param daldo to make it dynamic
-//     // ``use karo usme ${} iske andar req.param.jobhiparamkanaam tha dalo
-//     // req.param coz vo user se data jaaraha haina  
-//   res.send(`haan bhay mai ${req.params.username}`)
-// })
-
-
 //template engines -- ejs , pug , jade , handlebars
 //ejs is similar to html with powers (it can do calculations and other things) -- markup style hai jo html me convert hota hai
 // ejs setup karneke steps 
@@ -39,6 +12,8 @@ const app = express()
 
 // Setup EJS as the view engine
 app.set('view engine', 'ejs');
+
+app.use(express.static('./public'));
 
 // Define routes
 app.get('/', (req, res) => {
