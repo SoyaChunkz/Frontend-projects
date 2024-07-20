@@ -280,7 +280,7 @@
     <div id="main">
         <div id="page1">
             <div id="nav">
-                <a href="#">Sammo Darling</a>
+                <a href="#">Welcome users</a>
                 <h4>Menu+</h4>
             </div>
             <div id="heading">
@@ -292,7 +292,7 @@
                         <h1 class="boundingelem" id="secondh1">Designer</h1>
                     </div>
                     <div class="bounding">
-                        <h5 class="boundingelem">Based in Pakistan</h5>
+                        <h5 class="boundingelem">Based in India</h5>
                     </div>
                 </div>
             </div>
@@ -410,7 +410,7 @@
             var xprev = 0;
             var yprev = 0;
 
-            window.addEventListener("mousemove", function (dets) {
+            document.querySelector("#main").addEventListener("mousemove", function (dets) {
                 clearTimeout(timeout);
 
                 xscale = gsap.utils.clamp(0.8, 1.2, dets.clientX - xprev);
