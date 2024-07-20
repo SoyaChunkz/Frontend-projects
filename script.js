@@ -37,33 +37,38 @@ const app = express()
 // 4 - create a file named "index.ejs" in "views" wala folder
 // 5 - res.send ki jagah res.render karo  aur reder karte waqt views folder ke andar wali hi file ka naaam likho i.e usko render karo aur render function ke andar .ejs mat likho
 
-app.set("view engine", "ejs");
-// app.use(express.static('./public'));
+// Setup EJS as the view engine
+app.set('view engine', 'ejs');
 
-app.get("/", function (req, res) {
-    res.render("index", { name: "sammo" })
-    //{param:value} aisa karke idhar se index me data bhej skte hai
-})
-app.get("/proj1", function (req, res) {
-    res.render("proj1")
-})
-app.get("/proj2", function (req, res) {
-    res.render("proj2")
-})
-app.get("/proj3", function (req, res) {
-    res.render("proj3")
-})
-app.get("/error",function(req,res){
-    throw Error("SORRY FAM SOMETHING WENT WRONG")
-})
+// Define routes
+app.get('/', (req, res) => {
+    res.render('index', { name: 'sammo' }); // Render 'index.ejs' with a parameter
+});
 
-app.use(function errorHandler(err, req, res, next) {
+app.get('/proj1', (req, res) => {
+    res.render('proj1'); // Render 'proj1.ejs'
+});
+
+app.get('/proj2', (req, res) => {
+    res.render('proj2'); // Render 'proj2.ejs'
+});
+
+app.get('/proj3', (req, res) => {
+    res.render('proj3'); // Render 'proj3.ejs'
+});
+
+app.get('/error', (req, res) => {
+    throw new Error('SORRY FAM SOMETHING WENT WRONG'); // Simulate an error
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
     if (res.headersSent) {
-        return next(err)
+        return next(err);
     }
-    res.status(500)
-    res.render('error', { error: err })
-})
+    res.status(500);
+    res.render('error', { error: err }); // Render 'error.ejs'
+});
 
 
 
