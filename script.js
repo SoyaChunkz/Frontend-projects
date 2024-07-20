@@ -17,7 +17,7 @@ app.use(express.static('./public'));
 
 // Define routes
 app.get('/', (req, res) => {
-    res.render('index', { name: 'sammo' }); // Render 'index.ejs' with a parameter
+    res.render('index', { name: 'sameer' }); // Render 'index.ejs' with a parameter
 });
 
 app.get('/proj1', (req, res) => {
@@ -33,7 +33,7 @@ app.get('/proj3', (req, res) => {
 });
 
 app.get('/error', (req, res) => {
-    throw new Error('SORRY FAM SOMETHING WENT WRONG'); // Simulate an error
+    throw new Error('SORRY | SOMETHING WENT WRONG'); // Simulate an error
 });
 
 // Error handling middleware
