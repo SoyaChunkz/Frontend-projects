@@ -3,60 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
+    <title>Frontend Playground🕹️</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            background-color: #f0f0f0;
+            min-height: 100vh;
+            background-color: #f5f5f5; /* Light greyish background */
+            padding: 20px;
+            color: white; /* Change text color for better visibility */
         }
 
         h1 {
             margin-bottom: 20px;
+            text-align: center;
+            font-size: 3em; /* Made the welcome text larger */
+            color: #333; /* Change the header color to dark for visibility */
+        }
+        #hi {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2em; /* Made the welcome text larger */
+            color: #333; /* Change the header color to dark for visibility */
         }
 
         .intro {
             font-size: 1.2em;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 600px;
+            color: #333; /* Change intro text color to dark for visibility */
         }
 
-        .button-container {
-            display: flex;
-            gap: 15px;
+        /* Card Style */
+        .card {
+            background-color: #333; /* Dark grey card color */
+            color: #ffffff; /* White text inside card */
+            margin: 10px 0;
+            border: 1px solid #ffffff; /* White border */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            padding: 15px;
+            max-width: 800px;
+            width: 100%;
+            display: flex; /* Flexbox for side-by-side layout */
+            flex-direction: column; /* Stack elements vertically */
         }
 
-        .button {
+        .card:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .card-content {
+            display: flex; /* Flexbox for side-by-side description and button */
+            justify-content: space-between; /* Space between elements */
+            align-items: center; /* Center align items */
+            margin-top: 10px; /* Spacing between title and content */
+        }
+
+        .card p {
+            margin-right: 20px; /* Spacing between description and button */
+            flex-grow: 1; /* Allow paragraph to take available space */
+        }
+
+        .card a {
             padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            background-color: #007BFF;
+            font-size: 1.1em;
+            background-color: #007bff;
             color: white;
-            border: none;
-            border-radius: 5px;
             text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
-        .button:hover {
+        .card a:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Practice Projects</h1>
+    <h1>Welcome to Frontend Playground</h1>
+    <h2 id="hi">I'm Sameer😄</h2>
     <div class="intro">
-        A compilation of sleek and appealing frontend projects linked together using Express.js
+        This is a compilation of some of my best frontend projects I developed using HTML, CSS and JAVASCRIPT.
     </div>
-    <div class="button-container">
-        <a href="/proj1" class="button">Project 1</a>
-        <a href="/proj2" class="button">Project 2</a>
-        <a href="/proj3" class="button">Project 3</a>
-        <a href="/error" class="button">Error Page</a>
+
+    <!-- Card Section -->
+    <div class="card">
+        <h2>Project 1</h2>
+        <div class="card-content">
+            <p>Project 1 is the homepage of a golf club called Sid Cup.</p>
+            <a href="/proj1">Click</a>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Project 2</h2>
+        <div class="card-content">
+            <p>In Project 2, I designed a webpage for an Event Organizer named "Duo".</p>
+            <a href="/proj2">Click</a>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Project 3</h2>
+        <div class="card-content">
+            <p>Project 3 is like a portfolio website of a Web Designer.</p>
+            <a href="/proj3">Click</a>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Error Page</h2>
+        <div class="card-content">
+            <p>The error page provides a user-friendly 404 layout.</p>
+            <a href="/error">Error Page</a>
+        </div>
     </div>
 </body>
 </html>
